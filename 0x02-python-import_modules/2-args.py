@@ -8,5 +8,5 @@ if counter == 0:
 else:
     print("{} arguments:".format(counter))
     while counter > 0:
-        print("{}:{}".format(i + 1, argv[i]))
+        print("{}: {}".format(i + 1, argv[i]))
         i = i + 1
