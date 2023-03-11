@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import sys.argv
+if '__name__' == '__main__':
+    import sys.argv
 counter = len(argv)
 i = 0
 if counter == 0:
