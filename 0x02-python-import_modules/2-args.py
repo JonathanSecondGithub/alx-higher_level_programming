@@ -10,3 +10,4 @@ else:
     while counter > 0:
         print("{}: {}".format(i + 1, argv[i]))
         i = i + 1
+        counter = counter - 1
