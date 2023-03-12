@@ -4,11 +4,11 @@ if __name__ == '__main__':
 counter = len(argv)
 i = 0
 if counter == 0:
-    print("0 arguments.")
+    print("{} arguments.".format(counter))
 elif counter == 1:
-    print("1 argument:")
+    print("{} argument:".format(counter))
     print("{}: {}".format(counter, argv[counter]))
-else: 
+else:
     print("{} arguments:".format(counter))
     while counter > 0:
         print("{}: {}".format(i + 1, argv[i]))
