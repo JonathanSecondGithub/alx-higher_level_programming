@@ -4,5 +4,5 @@ def print_list_integer(my_list=[]):
     i = 0
     while counter > 0:
         print("{}".format(my_list[i]))
-        counter--
-        i++
+        counter -= 1
+        i += 1
