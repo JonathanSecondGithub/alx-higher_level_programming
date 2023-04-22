@@ -28,7 +28,7 @@ class Square:
         while x > 0:
             y = self.size
             while y > 0:
-                print("{}".format("#"), end = ' ')
+                print("{}".format("#"), end = '')
                 y = y - 1
             print()
             x = x - 1
