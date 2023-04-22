@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-#0-qruare.py
-"""define a square class"""
+# 0-square.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Define a class Square."""
+
 
 class Square:
-    """Empty Square Class"""
+    """Represent a square."""
     pass
-
