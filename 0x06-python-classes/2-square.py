@@ -3,10 +3,11 @@
 
 class Square:
     """class Square"""
-    def __init__(self, size = 0):
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        self.size = __size
+    def __init__(self, size=0):
+        try:
+            self.size = __size
+        except ValueError as e:
+                    print("size must be >= 0")
+        except TypeError as e:
+            print("size must be an integer")
 
