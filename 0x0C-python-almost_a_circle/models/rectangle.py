@@ -11,6 +11,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        """set/get the width of the rectangle"""
         self.__width = value
 
     @property
@@ -20,6 +21,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """set/get the height of the rectangle"""
         self.__height = value
 
     @property
@@ -29,6 +31,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self,value):
+        """set/get the x attribute of the rectangle"""
         self.__x = value
 
     @property
@@ -38,17 +41,18 @@ class Rectangle(Base):
 
     @y.setter
     def y(self,value):
+        """set/get the y attribute of the rectangle"""
         self.__y = value
 
     def __init__(self, width, height, x=0, y=0, id=None):
          """
             Initialize a new Rectangle.
             Args:
-            width (int): The width of the new Rectangle.
-            height (int): The height of the new Rectangle.
-            x (int): The x coordinate of the new Rectangle.
-            y (int): The y coordinate of the new Rectangle.
-            id (int): The identity of the new Rectangle.
+                width (int): The width of the new Rectangle.
+                height (int): The height of the new Rectangle.
+                x (int): The x coordinate of the new Rectangle.
+                y (int): The y coordinate of the new Rectangle.
+                id (int): The identity of the new Rectangle.
         """  
         self.width = width
         self.height = height
