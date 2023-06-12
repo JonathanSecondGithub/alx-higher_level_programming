@@ -1,15 +1,10 @@
 #!/usr/bin/node
 
 //Write a script that prints a message depending of the number of arguments passed
-
-let args = process.argv.length;
-
-if (args === 0){
+if (process.argv.length == 1) {
 	console.log('No argument');
-}
-else if (args === 1){
+} else if (process.argv.length == 2){
 	console.log('Argument found');
-}
-else {
+} else {
 	console.log('Arguments found');
 }
