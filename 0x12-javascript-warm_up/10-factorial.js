@@ -5,7 +5,6 @@ function factorial (x) {
 	if (x === '') {
 		ans = 1;
 	}
-	x = x - 1;
-	ans = factorial(x);
+	ans = factorial(x - 1);
 	console.log(ans);
 }
