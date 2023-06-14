@@ -4,7 +4,8 @@
 function factorial (x) {
 	if (x === '') {
 		ans = 1;
+	} else {
+		ans = ans * factorial(x - 1);
 	}
-	ans = factorial(x - 1);
 	console.log(ans);
 }
