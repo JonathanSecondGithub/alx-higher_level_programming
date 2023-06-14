@@ -3,8 +3,9 @@
 //Write a script that computes and prints a factorial
 function factorial (x) {
 	if (x === '') {
-		return 1;
+		ans = 1;
 	}
 	x = x - 1;
-	return (factorial(x));
+	ans = factorial(x);
+	console.log(ans);
 }
