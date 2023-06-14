@@ -3,7 +3,7 @@
 //Write a script that computes and prints a factorial
 int ans;
 function factorial (x) {
-	if (Number.isNan(x)) {
+	if (Number.isNaN(x)) {
 		ans = 1;
 	} else {
 		ans = x * factorial(x - 1);
