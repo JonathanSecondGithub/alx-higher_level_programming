@@ -1,17 +1,43 @@
 #!/usr/bin/python3
-# Lists all cities of the database hbtn_0e_4_usa, ordered by city id.
-# Usage: ./4-cities_by_state.py <mysql username> \
-#                               <mysql password> \
-#                               <database name>
-import sys
-import MySQLdb
+'''
+module:
+script that lists all cities from the database hbtn_0e_4_usa.
+MySQLdb
+'''
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` \
-                 FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                   ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
-    [print(city) for city in c.fetchall()]
+import MySQLdb
+import sys
+
+
+def list_cities(db_user, password, db_name):
+    '''connect to the MySQL server;
+    retrieve and print all cities from the database.
+    '''
+    db = MySQLdb.connect(host='localhost', port=3306, user=db_user,
+                         passwd=password, db=db_name)
+    cursor = db.cursor()
+
+    # retrieve all cities with their associated states
+    cursor.execute(
+        '''
+        SELECT cities.id, cities.name, states.name
+        FROM cities INNER JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+        ''')
+    cities = cursor.fetchall()
+
+    # print cities with their associated state
+    for city in cities:
+        print(city)
+
+    cursor.close()
+    db.close()
+
+
+if __name__ == '__main__':
+    # get connection variables from command-line arguments
+    db_user = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+
+    list_cities(db_user, password, db_name)

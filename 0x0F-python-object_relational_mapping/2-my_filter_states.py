@@ -1,17 +1,41 @@
 #!/usr/bin/python3
-# Displays all values in the states table of the database hbtn_0e_0_usa
-# whose name matches that supplied as argument.
-# Usage: ./2-my_filter_states.py <mysql username> \
-#                                <mysql password> \
-#                                <database name> \
-#                                <state name searched>
-import sys
-import MySQLdb
+'''
+module:
+script that takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa
+where name matches the argument.
+MySQLdb
+'''
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT * \
-                 FROM `states` \
-                WHERE BINARY `name` = '{}'".format(sys.argv[4]))
-    [print(state) for state in c.fetchall()]
+import MySQLdb
+import sys
+
+
+def filter_states(db_user, password, db_name, state_name):
+    '''Connect to the MySQL server
+    retrieve and print the values in the states table
+    where name matches the provided argument.
+    '''
+    db = MySQLdb.connect(host='localhost', port=3306, user=db_user,
+                         passwd=password, db=db_name)
+    cursor = db.cursor()
+    # create the SQL query object with user input
+    # Retrieve and print the matching states
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
+                   "ORDER BY id ASC".format(state_name))
+    states = cursor.fetchall()
+    for state in states:
+        print(state)
+
+    cursor.close()
+    db.close()
+
+
+if __name__ == '__main__':
+    # get connection variables and state name from command-line arguments
+    db_user = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+    state_name = sys.argv[4]
+
+    filter_states(db_user, password, db_name, state_name)
