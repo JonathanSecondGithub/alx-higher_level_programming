@@ -1,14 +1,6 @@
 #!/usr/bin/node
-
-//Write a script that computes and prints a factorial
-int ans;
-function factorial (x) {
-	if (Number.isNaN(x)) {
-		ans = 1;
-	} else {
-		ans = x * factorial(x - 1);
-	}
-	console.log(ans);
+function factorial (n) {
+  return n === 0 || isNaN(n) ? 1 : n * factorial(n - 1);
 }
 
-factorial(Number.parseInt(process.argv[2]));
+console.log(factorial(Number(process.argv[2])));
